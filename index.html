@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriFarm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Agri</div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for products,and more">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="nav-links">
+            <a href="#signup">Signup</a>
+            <a href="#cart">Cart</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Products</h2>
+            <div class="product-list" id="product-list">
+                <!-- Example Products -->
+                <div class="product" data-category="machines">
+                    <img src="https://sp.yimg.com/ib/th?id=OIP.8Uxz0ss2UPeZ6ph24q7vewHaGR&pid=Api&w=148&h=148&c=7&dpr=2&rs=1" alt="Machine 1">
+                    <h3>Machine</h3>
+                    <p>$499.99</p>
+                    <button onclick="addToCart('Machine', 499.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-category="fertilizer">
+                    <img src="https://sp.yimg.com/ib/th?id=OIP.MpOJ61CJkER2pTVHb9N0KwHaE7&pid=Api&w=148&h=148&c=7&dpr=2&rs=1" alt="Seed 1">
+                    <h3>NPK</h3>
+                    <p>$19.99</p>
+                    <button onclick="addToCart('NPK', 19.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-category="plant">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.aJAqgqo29AXp21RdbspH5gHaHa&pid=Api&P=0&h=180;" alt="mango plant">
+                    <h3>mango plant </h3>
+                    <p>$30.99</p>
+                    <button onclick="addToCart(' mango plant', 30.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-category="pesticide">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.Z-FmFtjdHJ0N6BqzwWQ3kQHaFr&pid=Api&P=0&h=180" alt="pesticide">
+                    <h3>insecticide</h3>
+                    <p>$20.99</p>
+                    <button onclick="addToCart('pesticide', 20.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-category="seeds">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.aKEAx60GxVV8HM6x8abpxAHaDt&pid=Api&P=0&h=180" alt="Seeds">
+                    <h3>bitterguard seed</h3>
+                    <p>$12.99</p>
+                    <button onclick="addToCart('Seeds',12.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-category="green plants">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.GEeTkDkhbBNUnsQX5lYVlgHaGB&pid=Api&P=0&h=180" alt="green plants">
+                    <h3>spinach</h3>
+                    <p>$17.99</p>
+                    <button  onclick="addToCart('spinach', 17.99)" >Add to Cart</button>
+                </div>
+                <div class="product" data-category="fruit">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.oqsQ-S2coCxVKEIQFNU4dQHaFM&pid=Api&P=0&h=180" alt="fruit">
+                    <h3>apple</h3>
+                    <p>$15.99</p>
+                    <button onclick="addToCart('fruit', 15.99)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="signup">
+            <h2>Signup</h2>
+            <form id="signup-form">
+                <label for="farmer-name">Name:</label>
+                <input type="text" id="farmer-name" name="farmer-name" required><br>
+                <label for="land-measurements">Land Measurements (in acres):</label>
+                <input type="number" id="land-measurements" name="land-measurements" required><br>
+                <label for="soil-type">Types of Soil:</label>
+                <input type="text" id="soil-type" name="soil-type" required><br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items">
+                <p>Your cart is currently empty.</p>
+            </div>
+            <p>Total: $<span id="total-price">0.00</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Flipkart Clone. All rights reserved.</p>
+    </footer>
+
+    <script src="Script.js"></script>
+</body>
+</html>
