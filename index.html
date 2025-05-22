@@ -3,98 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriFarm</title>
+    <title>AgriFarm - Your Farming Partner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">Agri</div>
+        <div class="logo">AgriFarm</div>
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search for products,and more">
+            <input type="text" id="search-input" placeholder="Search for products, categories...">
             <button onclick="searchProducts()">Search</button>
         </div>
         <div class="nav-links">
-            <a href="#signup">Signup</a>
-            <a href="#cart">Cart</a>
+            <a href="#signup-section">Farmer Signup</a>
+            <a href="#cart-section">Cart (<span id="cart-count">0</span>)</a>
         </div>
     </header>
 
     <main>
-        <section id="products">
-            <h2>Products</h2>
+        <section id="hero-section">
+            <h1>Welcome to AgriFarm</h1>
+            <p>Your one-stop shop for quality agricultural products and supplies.</p>
+        </section>
+
+        <section id="products-section">
+            <h2>Our Products</h2>
             <div class="product-list" id="product-list">
-                <!-- Example Products -->
-                <div class="product" data-category="machines">
-                    <img src="https://sp.yimg.com/ib/th?id=OIP.8Uxz0ss2UPeZ6ph24q7vewHaGR&pid=Api&w=148&h=148&c=7&dpr=2&rs=1" alt="Machine 1">
-                    <h3>Machine</h3>
+                <div class="product" data-category="machines" data-name="Compact Farm Tractor">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.xGfSxoXEQ06h9f7zzzb4KwHaHa&pid=Api&P=0&h=180" alt="Compact Farm Tractor">
+                    <h3>Compact Farm Tractor</h3>
+                    <p>$8500.00</p>
+                    <button onclick="addToCart('Compact Farm Tractor', 8500.00, 'https://images.unsplash.com/photo-1580993393053-cba44a745804?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hbGwlMjB0cmFjdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="machines" data-name="Seeder Machine">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.y9aZFZf9I5G7Zg2rxUcQ2QHaHa&pid=Api&P=0&h=180" alt="Seeder Machine">
+                    <h3>Seeder Machine</h3>
                     <p>$499.99</p>
-                    <button onclick="addToCart('Machine', 499.99)">Add to Cart</button>
+                    <button onclick="addToCart('Seeder Machine', 499.99, 'https://placehold.co/100x100/A9DFBF/2C3E50?text=Seeder')">Add to Cart</button>
                 </div>
-                <div class="product" data-category="fertilizer">
-                    <img src="https://sp.yimg.com/ib/th?id=OIP.MpOJ61CJkER2pTVHb9N0KwHaE7&pid=Api&w=148&h=148&c=7&dpr=2&rs=1" alt="Seed 1">
-                    <h3>NPK</h3>
+
+                <div class="product" data-category="fertilizer" data-name="NPK Fertilizer Granules">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.Xlo4vjLjRAXLgskz_q4LCwHaKw&pid=Api&P=0&h=180" alt="NPK Fertilizer Granules">
+                    <h3>NPK Fertilizer (10kg)</h3>
                     <p>$19.99</p>
-                    <button onclick="addToCart('NPK', 19.99)">Add to Cart</button>
+                    <button onclick="addToCart('NPK Fertilizer (10kg)', 19.99, 'https://images.pexels.com/photos/12930065/pexels-photo-12930065.jpeg?auto=compress&cs=tinysrgb&w=100&lazy=load')">Add to Cart</button>
                 </div>
-                <div class="product" data-category="plant">
-                    <img src="https://tse3.mm.bing.net/th?id=OIP.aJAqgqo29AXp21RdbspH5gHaHa&pid=Api&P=0&h=180;" alt="mango plant">
-                    <h3>mango plant </h3>
+                
+                <div class="product" data-category="supplies" data-name="Organic Compost Bag">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.IIVHu3eoOerLzgrRli9ewAHaGf&pid=Api&P=0&h=180" alt="Organic Compost Bag">
+                    <h3>Organic Compost (20kg)</h3>
+                    <p>$15.00</p>
+                    <button onclick="addToCart('Organic Compost (20kg)', 15.00, 'https://images.unsplash.com/photo-1591800252882-68a4097370aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29tcG9zdCUyMGJhZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="plant" data-name="Mango Sapling">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.arpBMHVJW0Bg5WsELxKK1QHaEK&pid=Api&P=0&h=180" alt="Mango Sapling">
+                    <h3>Mango Sapling</h3>
                     <p>$30.99</p>
-                    <button onclick="addToCart(' mango plant', 30.99)">Add to Cart</button>
+                    <button onclick="addToCart('Mango Sapling', 30.99, 'https://images.unsplash.com/photo-1601247387361-c962655933a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuZ28lMjBzYXBsaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
                 </div>
-                <div class="product" data-category="pesticide">
-                    <img src="https://tse3.mm.bing.net/th?id=OIP.Z-FmFtjdHJ0N6BqzwWQ3kQHaFr&pid=Api&P=0&h=180" alt="pesticide">
-                    <h3>insecticide</h3>
+
+                <div class="product" data-category="pesticide" data-name="Neem Oil Organic Pesticide">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.Ksg0ssjalbYmlwGyndBSeAHaHa&pid=Api&P=0&h=180" alt="Neem Oil Organic Pesticide">
+                    <h3>Neem Oil (Organic) 1L</h3>
+                    <p>$18.50</p>
+                    <button onclick="addToCart('Neem Oil (Organic) 1L', 18.50, 'https://images.unsplash.com/photo-1620009627048-bf5779188aa3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmVlbSUyMG9pbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+                
+                <div class="product" data-category="pesticide" data-name="Chemical Insecticide Spray">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.Ktj8pWC_H_r80FeMdR0wfQHaHa&pid=Api&P=0&h=180" alt="Chemical Insecticide Spray">
+                    <h3>Insecticide Spray (500ml)</h3>
                     <p>$20.99</p>
-                    <button onclick="addToCart('pesticide', 20.99)">Add to Cart</button>
+                    <button onclick="addToCart('Insecticide Spray (500ml)', 20.99, 'https://placehold.co/100x100/AED6F1/2C3E50?text=Pest')">Add to Cart</button>
                 </div>
-                <div class="product" data-category="seeds">
-                    <img src="https://tse2.mm.bing.net/th?id=OIP.aKEAx60GxVV8HM6x8abpxAHaDt&pid=Api&P=0&h=180" alt="Seeds">
-                    <h3>bitterguard seed</h3>
-                    <p>$12.99</p>
-                    <button onclick="addToCart('Seeds',12.99)">Add to Cart</button>
+
+                <div class="product" data-category="seeds" data-name="Heirloom Tomato Seeds">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.FA5q24dKC-4DGyiIlqFQlwHaHa&pid=Api&P=0&h=180" alt="Heirloom Tomato Seeds">
+                    <h3>Heirloom Tomato Seeds</h3>
+                    <p>$4.99</p>
+                    <button onclick="addToCart('Heirloom Tomato Seeds', 4.99, 'https://images.unsplash.com/photo-1587026096340-093c900c88cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvJTIwc2VlZHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
                 </div>
-                <div class="product" data-category="green plants">
-                    <img src="https://tse4.mm.bing.net/th?id=OIP.GEeTkDkhbBNUnsQX5lYVlgHaGB&pid=Api&P=0&h=180" alt="green plants">
-                    <h3>spinach</h3>
-                    <p>$17.99</p>
-                    <button  onclick="addToCart('spinach', 17.99)" >Add to Cart</button>
+
+                <div class="product" data-category="tools" data-name="Heavy Duty Shovel">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.NTeQRO6IRrawLhYhFqaDTQHaHx&pid=Api&P=0&h=180" alt="Heavy Duty Shovel">
+                    <h3>Heavy Duty Shovel</h3>
+                    <p>$25.99</p>
+                    <button onclick="addToCart('Heavy Duty Shovel', 25.99, 'https://images.unsplash.com/photo-1587830086455-35723004050a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvdmVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
                 </div>
-                <div class="product" data-category="fruit">
-                    <img src="https://tse4.mm.bing.net/th?id=OIP.oqsQ-S2coCxVKEIQFNU4dQHaFM&pid=Api&P=0&h=180" alt="fruit">
-                    <h3>apple</h3>
-                    <p>$15.99</p>
-                    <button onclick="addToCart('fruit', 15.99)">Add to Cart</button>
+
+                <div class="product" data-category="tools" data-name="Gardening Hoe">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.j1bCve3rzNW33tu6chKSoQHaHa&pid=Api&P=0&h=180" alt="Gardening Hoe">
+                    <h3>Gardening Hoe</h3>
+                    <p>$18.99</p>
+                    <button onclick="addToCart('Gardening Hoe', 18.99, 'https://images.unsplash.com/photo-1617570095099-abc17f916c57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2FyZGVuaW5nJTIwaG9lfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
                 </div>
+
+                <div class="product" data-category="equipment" data-name="Backpack Sprayer">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.xJjetJxaypqidqtx37pFGQHaHa&pid=Api&P=0&h=180" alt="Backpack Sprayer">
+                    <h3>Backpack Sprayer (16L)</h3>
+                    <p>$79.50</p>
+                    <button onclick="addToCart('Backpack Sprayer (16L)', 79.50, 'https://placehold.co/100x100/81C784/1B5E20?text=Sprayer')">Add to Cart</button>
+                </div>
+                
+                <div class="product" data-category="protective-gear" data-name="Durable Gardening Gloves">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.X2yRlpUZA3NezYopAj6O2AHaHa&pid=Api&P=0&h=180" alt="Durable Gardening Gloves">
+                    <h3>Durable Gardening Gloves</h3>
+                    <p>$12.00</p>
+                    <button onclick="addToCart('Durable Gardening Gloves', 12.00, 'https://images.unsplash.com/photo-1590256967902-89060a483917?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyZGVuaW5nJTIwZ2xvdmVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="equipment" data-name="Drip Irrigation Kit">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.9Qv7XXsnaBGVSklsXIp3OgHaHa&pid=Api&P=0&h=180" alt="Drip Irrigation Kit">
+                    <h3>Drip Irrigation Kit (50m)</h3>
+                    <p>$45.00</p>
+                    <button onclick="addToCart('Drip Irrigation Kit (50m)', 45.00, 'https://images.unsplash.com/photo-1630750237843-3c56a6d7785a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZHJpcCUyMGlyaWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="supplies" data-name="Seedling Trays">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.Qpx1KE_JeJQEHVqB8jUkPQHaHa&pid=Api&P=0&h=180" alt="Seedling Trays"> <!-- Generic garden image, better if specific tray img found -->
+                    <h3>Seedling Trays (Pack of 5)</h3>
+                    <p>$9.75</p>
+                    <button onclick="addToCart('Seedling Trays (Pack of 5)', 9.75, 'https://images.unsplash.com/photo-1587830086455-35723004050a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNlZWRsaW5nJTIwdHJheXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+                
+                <div class="product" data-category="equipment" data-name="Heavy Duty Wheelbarrow">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.B7ie9BnJ4CRRyXrCD3BFdAHaFY&pid=Api&P=0&h=180" alt="Heavy Duty Wheelbarrow">
+                    <h3>Heavy Duty Wheelbarrow</h3>
+                    <p>$89.99</p>
+                    <button onclick="addToCart('Heavy Duty Wheelbarrow', 89.99, 'https://images.unsplash.com/photo-1586600020952-509d87a8f80d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2hlZWxiYXJyb3d8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="tools" data-name="Professional Pruning Shears">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.PC7cw_uhz-5su9_YpYnaPwHaH_&pid=Api&P=0&h=180" alt="Professional Pruning Shears">
+                    <h3>Pruning Shears</h3>
+                    <p>$17.50</p>
+                    <button onclick="addToCart('Pruning Shears', 17.50, 'https://images.unsplash.com/photo-1615789991037-898c60940948?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJ1bmluZyUyMHNoZWFyc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="tools" data-name="Large Watering Can">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.9RmtmV-1TASDQ7wsmJ0ekQHaGU&pid=Api&P=0&h=180" alt="Large Watering Can">
+                    <h3>Watering Can (10L)</h3>
+                    <p>$22.00</p>
+                    <button onclick="addToCart('Watering Can (10L)', 22.00, 'https://images.unsplash.com/photo-1590007101712-12072d8bce51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2F0ZXJpbmclMjBjYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=80')">Add to Cart</button>
+                </div>
+                
+                <div class="product" data-category="supplies" data-name="Soil pH Test Kit">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.58FSefIxQNMHznaUepqj4wHaHa&pid=Api&P=0&h=180" alt="Soil pH Test Kit">
+                    <h3>Soil pH Test Kit</h3>
+                    <p>$14.99</p>
+                    <button onclick="addToCart('Soil pH Test Kit', 14.99, 'https://placehold.co/100x100/E0E0E0/333333?text=SoilKit')">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="supplies" data-name="Durable Harvesting Crates">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.jxVReIea1pRq3RgmJngF9gHaGG&pid=Api&P=0&h=180" alt="Durable Harvesting Crates">
+                    <h3>Harvesting Crates (Set of 3)</h3>
+                    <p>$35.00</p>
+                    <button onclick="addToCart('Harvesting Crates (Set of 3)', 35.00, 'https://images.pexels.com/photos/7015040/pexels-photo-7015040.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop&crop=entropy')">Add to Cart</button>
+                </div>
+
             </div>
         </section>
 
-        <section id="signup">
-            <h2>Signup</h2>
+        <section id="signup-section">
+            <h2>Farmer Signup</h2>
             <form id="signup-form">
-                <label for="farmer-name">Name:</label>
-                <input type="text" id="farmer-name" name="farmer-name" required><br>
-                <label for="land-measurements">Land Measurements (in acres):</label>
-                <input type="number" id="land-measurements" name="land-measurements" required><br>
-                <label for="soil-type">Types of Soil:</label>
-                <input type="text" id="soil-type" name="soil-type" required><br>
-                <button type="submit">Sign Up</button>
+                <div>
+                    <label for="farmer-name">Full Name:</label>
+                    <input type="text" id="farmer-name" name="farmer-name" required>
+                </div>
+                 <div>
+                    <label for="farmer-email">Email Address:</label>
+                    <input type="email" id="farmer-email" name="farmer-email" required>
+                </div>
+                <div>
+                    <label for="land-measurements">Farm Size (in acres):</label>
+                    <input type="number" id="land-measurements" name="land-measurements" min="0" step="0.1" required>
+                </div>
+                <div>
+                    <label for="soil-type">Primary Soil Type:</label>
+                    <input type="text" id="soil-type" name="soil-type" placeholder="e.g., Loamy, Clay, Sandy" required>
+                </div>
+                <div>
+                    <label for="main-crops">Main Crops Grown:</label>
+                    <input type="text" id="main-crops" name="main-crops" placeholder="e.g., Corn, Wheat, Vegetables">
+                </div>
+                <button type="submit">Register Now</button>
             </form>
+            <p id="signup-message" class="success-message" style="display:none;">Thanks for signing up!</p>
         </section>
 
-        <section id="cart">
+        <section id="cart-section">
             <h2>Shopping Cart</h2>
             <div id="cart-items">
-                <p>Your cart is currently empty.</p>
+                <p class="empty-cart-message">Your cart is currently empty.</p>
             </div>
-            <p>Total: $<span id="total-price">0.00</span></p>
+            <div class="cart-summary">
+                <p>Total: $<span id="total-price">0.00</span></p>
+                <button id="checkout-btn" onclick="checkout()" style="display:none;">Place Order</button>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Flipkart Clone. All rights reserved.</p>
+        <p>© 2024 AgriFarm. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
     </footer>
 
-    <script src="Script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
